@@ -88,13 +88,13 @@ Trust relationship with scheduler.amazonaws.com
 ## Troubleshooting
 ### Common Errors:
 
-HIVE_PARTITION_SCHEMA_MISMATCH: This occurs when the Glue crawler cannot match the schema of partitioned data.
+- HIVE_PARTITION_SCHEMA_MISMATCH: This occurs when the Glue crawler cannot match the schema of partitioned data.
 
-Solution: Re-run the Glue Crawler with updated partition fields.
+  Solution: Re-run the Glue Crawler with updated partition fields.
 
-Lambda Timeout: If the Lambda function times out, increase the timeout setting in the Lambda configuration.
+- Lambda Timeout: If the Lambda function times out, increase the timeout setting in the Lambda configuration.
 
-Athena Errors: If the partitioning is mismatched, ensure that the partitions in your query match the S3 data and Glue schema.
+- Athena Errors: If the partitioning is mismatched, ensure that the partitions in your query match the S3 data and Glue schema.
 
 
 ## Conclusion
