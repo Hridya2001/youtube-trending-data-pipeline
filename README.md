@@ -44,7 +44,7 @@ The data is queried in a partitioned way to get specific results, such as the vi
 1. Programming Language - Python
 2. Scripting Language - SQL
 3. AWS
-   - lambda
+   - Lambda
    - Event Bridge
    - S3
    - AWS Glue
@@ -57,6 +57,46 @@ The data is queried in a partitioned way to get specific results, such as the vi
 This Lambda function fetches metadata and statistics of trending YouTube videos using the YouTube Data API v3. It first searches for the top 10 videos related to the keyword “Trending” and retrieves their video IDs. Then, it fetches detailed information for each video—such as title, channel name, view count, like count, and thumbnail URLs—and organizes the data into a structured JSON format. Finally, it stores this data in an S3 bucket using a time-based partitioned folder structure (year/month/day/hour) for easy querying with AWS Glue and Athena.
 2. [athena.txt](codes-n-query/athena-sql-query)
 This query retrieves the titles of trending YouTube videos along with their maximum like counts for a specific date (May 3, 2025). The data is filtered by partition keys (year, month, day) and handles nested JSON by unnesting the items array.
+
+
+## Policies and IAM Permissions
+Make sure to grant the following IAM roles and permissions:
+
+1. Lambda Execution Role
+To allow your Lambda function to:
+Call the YouTube Data API (handled via requests, no IAM policy needed)
+Write to S3
+
+Policies added:
+AmazonS3FullAccess
+
+2. AWS Glue Crawler Role
+To allow the Glue Crawler to:
+Read from your S3 bucket
+Write metadata to Glue Data Catalog
+
+Policies added:
+AmazonS3ReadOnlyAccess 
+AWSGlueServiceRole
+
+3. EventBridge Scheduler Execution Policy
+Policy Name: Amazon-EventBridge-Scheduler-Execution-Policy-84bed0da-3e5b-47d6-a1a0-96e8a1091ac8
+Purpose: Lets EventBridge invoke Lambda functions based on a schedule (every hour in your case).
+
+Usually grants:
+lambda:InvokeFunction
+Trust relationship with scheduler.amazonaws.com
+
+## Troubleshooting
+Common Errors:
+HIVE_PARTITION_SCHEMA_MISMATCH: This occurs when the Glue crawler cannot match the schema of partitioned data.
+
+Solution: Re-run the Glue Crawler with updated partition fields.
+
+Lambda Timeout: If the Lambda function times out, increase the timeout setting in the Lambda configuration.
+
+Athena Errors: If the partitioning is mismatched, ensure that the partitions in your query match the S3 data and Glue schema.
+
 
 
 
