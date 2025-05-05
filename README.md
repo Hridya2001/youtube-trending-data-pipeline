@@ -7,7 +7,7 @@ This project implements a data pipeline that fetches trending YouTube video stat
 ## Architecture
 ![Architecture](images/architecture.png)
 
-## Components
+## Components & Process
 
 - Data Source: The data is sourced from the [YouTube Data API v3](https://developers.google.com/youtube/v3), specifically from the Search endpoint and the videos endpoint, using a developer API key. The pipeline queries trending video metadata and statistics such as title, channel name, like count, and more.
 
