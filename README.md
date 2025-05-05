@@ -50,7 +50,10 @@ The data is queried in a partitioned way to get specific results, such as the vi
    - AWS Glue
    - Amazon Athena
    - IAM
-   - 
+
+
+## Code and Query
+1. [lambda.py](codes-n-query/lambda.py)
 
 
 
