@@ -86,7 +86,8 @@ lambda:InvokeFunction
 Trust relationship with scheduler.amazonaws.com
 
 ## Troubleshooting
-Common Errors:
+### Common Errors:
+
 HIVE_PARTITION_SCHEMA_MISMATCH: This occurs when the Glue crawler cannot match the schema of partitioned data.
 
 Solution: Re-run the Glue Crawler with updated partition fields.
