@@ -13,7 +13,7 @@ This project implements a data pipeline that fetches trending YouTube video stat
 
      API Endpoint Base URL: `https://www.googleapis.com/youtube/v3`
 
-     API_KEY: AIzaSyDjio9u6s6C-Ob3Ox2q77fANRhXZNnSokY
+     API KEY:
 
 - EventBridge Rule: Triggers the Lambda function every hour to fetch the latest trending videos from YouTube.
 
