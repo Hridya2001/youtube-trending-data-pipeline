@@ -54,7 +54,7 @@ The data is queried in a partitioned way to get specific results, such as the vi
 
 ## Code and Query
 1. [lambda.py](codes-n-query/lambda.py)
-
+2. [athena.txt](codes-n-query/athena-sql-query)
 
 
 
