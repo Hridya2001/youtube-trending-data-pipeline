@@ -7,7 +7,7 @@ from collections import OrderedDict
 s3 = boto3.client('s3')
 
 def lambda_handler(event, context):
-    YOUTUBE_API_KEY = "AIzaSyDjio9u6s6C-Ob3Ox2q77fANRhXZNnSokY"
+    YOUTUBE_API_KEY = " "
     SEARCH_QUERY = "Trending"
     MAX_RESULTS = 10
     BUCKET_NAME = "hridya-api-data-bucket"
