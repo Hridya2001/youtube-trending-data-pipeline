@@ -34,7 +34,7 @@ The data is queried in a partitioned way to get specific results, such as the vi
 ##  Data Source
 The data is sourced from the [YouTube Data API v3](https://googleapis.com/youtube/v3/search), specifically from the Search endpoint and the videos endpoint, using a developer API key. The pipeline queries trending video metadata and statistics such as title, channel name, like count, and more.
 
-- API Endpoint: https://googleapis.com/youtube/v3 
+- API Endpoint Base URL: `https://www.googleapis.com/youtube/v3`
 
 - API_KEY: AIzaSyDjio9u6s6C-Ob3Ox2q77fANRhXZNnSokY
 
