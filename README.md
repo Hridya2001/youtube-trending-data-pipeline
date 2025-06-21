@@ -52,7 +52,7 @@ The data is queried in a partitioned way to get specific results, such as the vi
 This Lambda function fetches metadata and statistics of trending YouTube videos using the YouTube Data API v3. It first searches for the top 10 videos related to the keyword “Trending” and retrieves their video IDs. Then, it fetches detailed information for each video—such as title, channel name, view count, like count, and thumbnail URLs—and organizes the data into a structured JSON format. Finally, it stores this data in an S3 bucket using a time-based partitioned folder structure (year/month/day/hour) for easy querying with AWS Glue and Athena.
 
 
-2. [athena.txt](codes-n-query/athena-sql-query)
+2. [athena.sql](codes-n-query/athena-query.sql)
 
 This query retrieves the titles of trending YouTube videos along with their maximum like counts for a specific date (May 3, 2025). The data is filtered by partition keys (year, month, day) and handles nested JSON by unnesting the items array.
 
